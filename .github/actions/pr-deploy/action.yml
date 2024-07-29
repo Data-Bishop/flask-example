@@ -53,7 +53,7 @@ runs:
           chmod 600 private_key.pem
           SSH_CMD="ssh -i private_key.pem -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST"
         else
-          SSH_CMD="sshpass -p $PASSWORD ssh -p $PORT $USERNAME@$HOST"
+          SSH_CMD="sshpass -p \$PASSWORD ssh -p \$PORT \$USERNAME@$HOST"
         fi
         
         $SSH_CMD << EOF      
@@ -111,7 +111,7 @@ runs:
           chmod 600 private_key.pem
           SSH_CMD="ssh -i private_key.pem -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST"
         else
-          SSH_CMD="sshpass -p $PASSWORD ssh -p $PORT $USERNAME@$HOST"
+          SSH_CMD="sshpass -p \$PASSWORD ssh -p \$PORT \$USERNAME@$HOST"
         fi
         
         $SSH_CMD << EOF
