@@ -53,8 +53,9 @@ runs:
           chmod 600 private_key.pem
           SSH_CMD="ssh -i private_key.pem -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST"
         else
+          echo $DOCKERFILE
           echo $PORT
-          SSH_CMD="sshpass -p 'QuickQuiet1Quail' ssh -p 22 root@157.245.130.85"
+          SSH_CMD="sshpass -p 'QuickQuiet1Quail' -T -o StrictHostKeyChecking=no ssh -p 22 root@157.245.130.85"
         fi
         
         $SSH_CMD << EOF      
@@ -62,6 +63,7 @@ runs:
             sudo apt-get update
             sudo apt-get install -y docker.io
           fi
+          echo "I am on line 66"
 
           if ! command -v python3 &> /dev/null; then
             sudo apt-get update
@@ -86,6 +88,8 @@ runs:
           #     echo "Removing image \$IMAGE_ID..."
           #     sudo docker rmi -f \$IMAGE_ID
           # done
+
+          echo "I am done on line 92"
 
         EOF
         
@@ -112,7 +116,7 @@ runs:
           chmod 600 private_key.pem
           SSH_CMD="ssh -i private_key.pem -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST"
         else
-          SSH_CMD="sshpass -p 'QuickQuiet1Quail' ssh -p 22 root@157.245.130.85"
+          SSH_CMD="sshpass -p 'QuickQuiet1Quail' -T -o StrictHostKeyChecking=no ssh -p 22 root@157.245.130.85"
         fi
         
         $SSH_CMD << EOF
