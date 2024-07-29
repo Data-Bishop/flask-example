@@ -63,6 +63,8 @@ runs:
             sudo apt-get install -y docker.io
           fi
 
+          echo "I am in line 66"
+
           if ! command -v python3 &> /dev/null; then
             sudo apt-get update
             sudo apt-get install -y python3
@@ -71,6 +73,8 @@ runs:
           # Add current user to docker group
           # sudo usermod -aG docker $USER
           # newgrp docker
+
+          echo "I am in line 77"
 
           # Loop through each container and stop and remove it
           # CONTAINERS=$(sudo docker ps -aq --filter "label=branch=${GITHUB_HEAD_REF}")
@@ -86,7 +90,7 @@ runs:
           #     echo "Removing image \$IMAGE_ID..."
           #     sudo docker rmi -f \$IMAGE_ID
           # done
-
+          echo "I got to the end of line 93"
         EOF
         
         if [ -n "$SSH_PRIVATE_KEY" ]; then
