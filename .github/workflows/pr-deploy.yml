@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy PR
-        uses: hngprojects/pr-deploy@v1.1.6
+        uses: hngprojects/pr-deploy@v1.1.7
         with:
           server_host: ${{ secrets.SERVER_HOST }}
           server_username: ${{ secrets.SERVER_USERNAME }}
