@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v4
       - id: deploy
         name: Pull Request Deploy
-        uses: hngprojects/pr-deploy@debug_feat_private_key
+        uses: hngprojects/pr-deploy@main-patch
         with:
           server_host: ${{ secrets.SERVER_HOST }}
           server_username: ${{ secrets.SERVER_USERNAME }}
           server_password: ${{ secrets.SERVER_PASSWORD }}
           server_port: ${{ secrets.SERVER_PORT }}
-          server_private_key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          #server_private_key: ${{ secrets.SERVER_PRIVATE_KEY }}
           comment: true
           context: '.'
           dockerfile: 'Dockerfile'
